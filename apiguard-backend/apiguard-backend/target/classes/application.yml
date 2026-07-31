@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: apiguard-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/apiguard_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # use 'validate' or migrations in real production
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# ---------- Custom app properties ----------
+apiguard:
+  jwt:
+    secret: "ChangeThisSecretKeyToSomethingLongAndRandomForProduction123456"
+    expiration-ms: 86400000   # 24 hours
+
+  rate-limit:
+    free-plan-daily-limit: 100
+    premium-plan-daily-limit: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    com.apiguard: DEBUG

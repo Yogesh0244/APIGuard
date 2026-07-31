@@ -99,11 +99,6 @@ Runs on `http://localhost:5173` and proxies `/api/*` to the backend.
 
 ---
 
-## Screenshots
-
-*(Add a few screenshots or a short screen recording of the dashboard, API tester, and analytics page here before publishing.)*
-
----
 
 ## What This Project Demonstrates
 
